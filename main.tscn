@@ -1,0 +1,160 @@
+[gd_scene load_steps=4 format=3 uid="uid://f0vxvaiqfdgr"]
+
+[ext_resource type="Script" uid="uid://cquqnhj6nuk72" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cf4egptvr3nqw" path="res://card.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://diqkq4qdb8jto" path="res://cell.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2yge")
+
+[node name="Backgroud" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Grid" type="GridContainer" parent="Game"]
+layout_mode = 2
+columns = 5
+
+[node name="Cell" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell4" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell3" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell5" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell2" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell6" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell7" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell8" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell9" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell10" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell11" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell12" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell13" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell14" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell15" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell16" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell17" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell18" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell19" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell20" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell21" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell22" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell23" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell24" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Cell25" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+layout_mode = 2
+
+[node name="Separator" type="Control" parent="Game"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Hand" type="HBoxContainer" parent="Game"]
+layout_direction = 3
+layout_mode = 2
+theme_override_constants/separation = -60
+alignment = 1
+
+[node name="Card9" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+direction = 1
+
+[node name="Card6" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+direction = 2
+
+[node name="Card8" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+direction = 3
+
+[node name="Card7" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+type = 1
+
+[node name="Card5" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+
+[node name="Card4" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+
+[node name="Card3" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+
+[node name="Card2" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+
+[node name="Card1" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
+
+[node name="Card0" parent="Game/Hand" instance=ExtResource("1_ig7tw")]
+layout_mode = 2
