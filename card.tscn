@@ -49,6 +49,7 @@ grow_vertical = 2
 flat = true
 
 [node name="PlayType" type="Label" parent="."]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 4.0
 offset_right = 22.0

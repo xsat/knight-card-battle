@@ -16,9 +16,10 @@ enum Direction {FORWARD, BACKWARD, LEFT, RIGHT}
 
 func set_play_number(number: int) -> void:
 	play_number.text = str(number)
-
-func clear_play_number() -> void:
-	play_number.text = str("0")
+	
+func update_play_type_direction() -> void:
+	_update_play_type()
+	_update_play_direction()
 
 func _ready() -> void:
 	_update_play_type()

@@ -1,41 +1,51 @@
 extends Control
 
+@export var cards_for_each_type: int = 20
 
-@onready var card_9: Card = $Game/Hand/Card9
-@onready var card_6: Card = $Game/Hand/Card6
-@onready var card_8: Card = $Game/Hand/Card8
-@onready var card_7: Card = $Game/Hand/Card7
-@onready var card_5: Card = $Game/Hand/Card5
-@onready var card_4: Card = $Game/Hand/Card4
-@onready var card_3: Card = $Game/Hand/Card3
-@onready var card_2: Card = $Game/Hand/Card2
-@onready var card_1: Card = $Game/Hand/Card1
-@onready var card_0: Card = $Game/Hand/Card0
+@onready var play_cards: Array[Card] = [
+	$Game/Hand/Card9,
+	$Game/Hand/Card8,
+	$Game/Hand/Card7,
+	$Game/Hand/Card6,
+	$Game/Hand/Card5,
+	$Game/Hand/Card4,
+	$Game/Hand/Card3,
+	$Game/Hand/Card2,
+	$Game/Hand/Card1,
+	$Game/Hand/Card0,
+]
 
 @onready var selected_cards: Array[Card] = []
 
+var deck: Array[Dictionary] = [] 
 
 func _ready() -> void:
-	card_9.select_card.connect(_on_card_select)
-	card_8.select_card.connect(_on_card_select)
-	card_7.select_card.connect(_on_card_select)
-	card_6.select_card.connect(_on_card_select)
-	card_5.select_card.connect(_on_card_select)
-	card_4.select_card.connect(_on_card_select)
-	card_3.select_card.connect(_on_card_select)
-	card_2.select_card.connect(_on_card_select)
-	card_1.select_card.connect(_on_card_select)
-	card_0.select_card.connect(_on_card_select)
+	deck = _create_deck()
 	
+	for i: int in play_cards.size():
+		play_cards[i].select_card.connect(_on_card_select)
+		play_cards[i].type = deck[i]["type"]
+		play_cards[i].direction = deck[i]["direction"]
+		play_cards[i].update_play_type_direction()
+	
+func _create_deck() -> Array[Dictionary]:
+	var cards: Array[Dictionary] = []
+	
+	for i: int in range(cards_for_each_type):
+		for type: Card.Type in Card.Type.values():
+			for direction: Card.Direction in Card.Direction.values():
+				cards.append({"type": type, "direction": direction})
+	
+	cards.shuffle()
+	
+	return cards
 	
 func _on_card_select(card: Card) -> void:
 	_update_seleted_cards(card)
 	
-	
 func _update_seleted_cards(card: Card) -> void:
 	if selected_cards.has(card):
 		selected_cards.erase(card)
-		card.clear_play_number()
 		
 		var card_number = 1
 		for select_card: Card in selected_cards:
