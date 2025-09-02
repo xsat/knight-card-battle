@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cf4egptvr3nqw" path="res://card.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://diqkq4qdb8jto" path="res://cell.tscn" id="2_0xm2m"]
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" node_paths=PackedStringArray("spawn")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_h2yge")
+spawn = [NodePath("Game/Grid/Cell00"), NodePath("Game/Grid/Cell04"), NodePath("Game/Grid/Cell40"), NodePath("Game/Grid/Cell44")]
 
 [node name="Backgroud" type="ColorRect" parent="."]
 layout_mode = 1

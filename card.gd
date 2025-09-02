@@ -10,12 +10,22 @@ enum Direction {FORWARD, BACKWARD, LEFT, RIGHT}
 @export var type: Type
 @export var direction: Direction
 
-@onready var play_type: Label = $PlayType
 @onready var play_direction: Label = $PlayDirection
+@onready var play_type: Label = $PlayType
 @onready var play_number: Label = $PlayNumber
+
+@onready var background: ColorRect = $Background
 
 func set_play_number(number: int) -> void:
 	play_number.text = str(number)
+
+func show_play_number() -> void:
+	play_number.set_visible(true)
+	background.set_color(Color.YELLOW)
+	
+func hide_play_number() -> void:
+	play_number.set_visible(false)
+	background.set_color(Color.BLACK)
 	
 func update_play_type_direction() -> void:
 	_update_play_type()
@@ -43,8 +53,6 @@ func _update_play_direction() -> void:
 
 func _on_button_pressed() -> void:
 	select_card.emit(self)
-	
-	play_number.set_visible(not play_number.is_visible())
 
 func _on_button_mouse_entered() -> void:
 	scale *= 2
