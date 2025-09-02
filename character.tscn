@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b8ptuhgxkb7u2"]
+[gd_scene load_steps=2 format=3 uid="uid://drvgg06c5h1hc"]
 
-[ext_resource type="Script" uid="uid://0kmjkped6uhg" path="res://item.gd" id="1_tnite"]
+[ext_resource type="Script" uid="uid://cst6348o53ctp" path="res://character.gd" id="1_glpr6"]
 
-[node name="Item" type="Control"]
+[node name="Character" type="Control"]
 custom_minimum_size = Vector2(190, 190)
 layout_mode = 3
 anchors_preset = 15
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_tnite")
+script = ExtResource("1_glpr6")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.588235, 0.588235, 0.588235, 1)
 
-[node name="ItemName" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

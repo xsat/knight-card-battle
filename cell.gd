@@ -8,4 +8,4 @@ class_name Cell
 @export var left_cell: Cell
 @export var right_cell: Cell
 
-@onready var items: HBoxContainer = $Items
+@onready var characters: HBoxContainer = $Items

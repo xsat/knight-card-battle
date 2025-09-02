@@ -11,7 +11,7 @@ extends Control
 	$Game/Grid/Cell44,
 ]
 
-@onready var play_cards: Array[Card] = [
+@onready var hand: Array[Card] = [
 	$Game/Hand/Card9,
 	$Game/Hand/Card8,
 	$Game/Hand/Card7,
@@ -24,28 +24,27 @@ extends Control
 	$Game/Hand/Card0,
 ]
 
-@onready var selected_cards: Array[Card] = []
-
 var deck: Array[PlayCard] = [] 
+var selected_cards: Array[Card] = []
 
 func _ready() -> void:
 	_spawn_players()
 	_create_deck()
 	
-	for i: int in play_cards.size():
-		play_cards[i].select_card.connect(_on_card_select)
-		play_cards[i].set_play_card(deck[i])
+	for i: int in hand.size():
+		hand[i].select_card.connect(_on_card_select)
+		hand[i].set_play_card(deck[i])
 
 func _spawn_players() -> void:
 	spawn.shuffle()
 	
-	var player1: Item = preload("res://item.tscn").instantiate()
-	spawn[0].items.add_child(player1)
-	player1.set_item_name_text("Player 1")
+	var player1_character: Character = preload("res://character.tscn").instantiate()
+	spawn[0].characters.add_child(player1_character)
+	player1_character.set_title_text("Player 1")
 	
-	var player2: Item = preload("res://item.tscn").instantiate()
-	spawn[1].items.add_child(player2)
-	player2.set_item_name_text("Player 2")
+	var player2_character: Character = preload("res://character.tscn").instantiate()
+	spawn[1].characters.add_child(player2_character)
+	player2_character.set_title_text("Player 2")
 
 func _create_deck() -> void:
 	deck = []
@@ -53,11 +52,7 @@ func _create_deck() -> void:
 	for i: int in range(cards_for_each_type):
 		for play_type: PlayCard.Type in PlayCard.Type.values():
 			for play_direction: PlayCard.Direction in PlayCard.Direction.values():
-				var new_play_card: PlayCard = PlayCard.new()
-				new_play_card.set_direction(play_direction)
-				new_play_card.set_type(play_type)
-				
-				deck.append(new_play_card)
+				deck.append(PlayCard.build_from_direction_type(play_direction, play_type))
 	
 	deck.shuffle()
 	

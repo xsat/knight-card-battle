@@ -8,6 +8,13 @@ enum Type {ATTACK, MOVE}
 var direction: Direction
 var type: Type
 
+static func build_from_direction_type(new_direction: Direction, new_type: Type) -> PlayCard:
+	var new_play_card: PlayCard = PlayCard.new()
+	new_play_card.set_direction(new_direction)
+	new_play_card.set_type(new_type)
+	
+	return new_play_card
+
 func get_direction() -> Direction:
 	return direction
 	
