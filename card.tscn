@@ -48,7 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="PlayDirection" type="Label" parent="."]
+[node name="Direction" type="Label" parent="."]
 layout_mode = 1
 offset_left = 10.0
 offset_top = 4.0
@@ -58,7 +58,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "D"
 
-[node name="PlayType" type="Label" parent="."]
+[node name="Type" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -72,7 +72,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
 text = "T"
 
-[node name="PlayNumber" type="Label" parent="."]
+[node name="Number" type="Label" parent="."]
 visible = false
 layout_mode = 1
 anchors_preset = 2

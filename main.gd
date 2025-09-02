@@ -4,8 +4,12 @@ extends Control
 @export var cards_for_each_type: int = 20
 @export_range(1, 10) var cards_select_per_round: int = 5
 
-@export_group("Spawn")
-@export var spawn: Array[Cell] = []
+@onready var spawn: Array[Cell] = [
+	$Game/Grid/Cell00,
+	$Game/Grid/Cell04,
+	$Game/Grid/Cell40,
+	$Game/Grid/Cell44,
+]
 
 @onready var play_cards: Array[Card] = [
 	$Game/Hand/Card9,
@@ -22,18 +26,15 @@ extends Control
 
 @onready var selected_cards: Array[Card] = []
 
-var deck: Array[Dictionary] = [] 
+var deck: Array[PlayCard] = [] 
 
 func _ready() -> void:
 	_spawn_players()
-	
 	_create_deck()
 	
 	for i: int in play_cards.size():
 		play_cards[i].select_card.connect(_on_card_select)
-		play_cards[i].type = deck[i]["type"]
-		play_cards[i].direction = deck[i]["direction"]
-		play_cards[i].update_play_type_direction()
+		play_cards[i].set_play_card(deck[i])
 
 func _spawn_players() -> void:
 	spawn.shuffle()
@@ -50,9 +51,13 @@ func _create_deck() -> void:
 	deck = []
 	
 	for i: int in range(cards_for_each_type):
-		for type: Card.Type in Card.Type.values():
-			for direction: Card.Direction in Card.Direction.values():
-				deck.append({"type": type, "direction": direction})
+		for play_type: PlayCard.Type in PlayCard.Type.values():
+			for play_direction: PlayCard.Direction in PlayCard.Direction.values():
+				var new_play_card: PlayCard = PlayCard.new()
+				new_play_card.set_direction(play_direction)
+				new_play_card.set_type(play_type)
+				
+				deck.append(new_play_card)
 	
 	deck.shuffle()
 	
@@ -61,17 +66,15 @@ func _on_card_select(card: Card) -> void:
 	
 func _update_seleted_cards(card: Card) -> void:
 	if selected_cards.has(card):
-		card.hide_play_number()
+		card.hide_number()
 		selected_cards.erase(card)
 		
-		var card_number = 1
+		var card_number: int = 1
 		for select_card: Card in selected_cards:
-			select_card.set_play_number(card_number)
+			select_card.set_number(card_number)
 			card_number += 1
 	else:
-		print(selected_cards.size(), cards_select_per_round, selected_cards.size() <= cards_select_per_round)
-		
 		if selected_cards.size() < cards_select_per_round:
 			selected_cards.append(card)
-			card.set_play_number(selected_cards.size())
-			card.show_play_number()
+			card.set_number(selected_cards.size())
+			card.show_number()
