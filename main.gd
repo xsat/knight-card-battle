@@ -27,9 +27,12 @@ extends Control
 var deck: Array[PlayCard] = [] 
 var selected_cards: Array[Card] = []
 
+var player: Character
+var enemies: Array[Character] = []
+
 func _ready() -> void:
-	_spawn_players()
 	_create_deck()
+	_spawn_players()
 	
 	for i: int in hand.size():
 		hand[i].select_card.connect(_on_card_select)
@@ -38,13 +41,20 @@ func _ready() -> void:
 func _spawn_players() -> void:
 	spawn.shuffle()
 	
-	var player1_character: Character = preload("res://character.tscn").instantiate()
-	spawn[0].characters.add_child(player1_character)
-	player1_character.set_title_text("Player 1")
+	if spawn.size() >= 1:
+		player = preload("res://character.tscn").instantiate()
+		spawn[0].characters.add_child(player)
+		player.set_title_text("Player 1")
+		player.set_play_card(deck.pick_random(), true)
+		player.set_location(spawn[0])
 	
-	var player2_character: Character = preload("res://character.tscn").instantiate()
-	spawn[1].characters.add_child(player2_character)
-	player2_character.set_title_text("Player 2")
+	if spawn.size() >= 2:
+		var player2_character: Character = preload("res://character.tscn").instantiate()
+		spawn[1].characters.add_child(player2_character)
+		player2_character.set_title_text("Player 2")
+		player2_character.set_play_card(deck.pick_random(), true)
+		player2_character.set_location(spawn[1])
+		enemies.append(player2_character)
 
 func _create_deck() -> void:
 	deck = []
@@ -58,6 +68,9 @@ func _create_deck() -> void:
 	
 func _on_card_select(card: Card) -> void:
 	_update_seleted_cards(card)
+	
+	for selected_card: Card in selected_cards:
+		player.set_play_card(selected_card.get_play_card())
 	
 func _update_seleted_cards(card: Card) -> void:
 	if selected_cards.has(card):

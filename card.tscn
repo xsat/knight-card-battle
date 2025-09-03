@@ -56,7 +56,7 @@ offset_right = 25.0
 offset_bottom = 32.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "D"
+text = "Direction"
 
 [node name="Type" type="Label" parent="."]
 layout_mode = 1
@@ -70,7 +70,7 @@ offset_bottom = 14.0
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "T"
+text = "Type"
 
 [node name="Number" type="Label" parent="."]
 visible = false
@@ -85,7 +85,7 @@ offset_bottom = -5.0
 grow_vertical = 0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 20
-text = "0"
+text = "Number"
 
 [connection signal="mouse_entered" from="Button" to="." method="_on_button_mouse_entered"]
 [connection signal="mouse_exited" from="Button" to="." method="_on_button_mouse_exited"]

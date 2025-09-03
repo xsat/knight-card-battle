@@ -36,86 +36,182 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="Info" type="HBoxContainer" parent="Game"]
+visible = false
+layout_mode = 2
+
+[node name="Deck" type="Label" parent="Game/Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "Deck:"
+
+[node name="Cards" type="Label" parent="Game/Info"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "0"
+
 [node name="Grid" type="GridContainer" parent="Game"]
 layout_mode = 2
 columns = 5
 
-[node name="Cell00" parent="Game/Grid" node_paths=PackedStringArray("left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
+[node name="Cell00" parent="Game/Grid" node_paths=PackedStringArray("bottom_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
-left_cell = NodePath("../Cell01")
+bottom_cell = NodePath("../Cell10")
 right_cell = NodePath("../Cell10")
 
-[node name="Cell01" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell01" parent="Game/Grid" node_paths=PackedStringArray("bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+bottom_cell = NodePath("../Cell11")
+left_cell = NodePath("../Cell00")
+right_cell = NodePath("../Cell02")
 
-[node name="Cell02" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell02" parent="Game/Grid" node_paths=PackedStringArray("bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+bottom_cell = NodePath("../Cell12")
+left_cell = NodePath("../Cell01")
+right_cell = NodePath("../Cell03")
 
-[node name="Cell03" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell03" parent="Game/Grid" node_paths=PackedStringArray("bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+bottom_cell = NodePath("../Cell13")
+left_cell = NodePath("../Cell02")
+right_cell = NodePath("../Cell04")
 
-[node name="Cell04" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell04" parent="Game/Grid" node_paths=PackedStringArray("bottom_cell", "left_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+bottom_cell = NodePath("../Cell14")
+left_cell = NodePath("../Cell03")
 
-[node name="Cell10" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell10" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell00")
+bottom_cell = NodePath("../Cell20")
+right_cell = NodePath("../Cell11")
 
-[node name="Cell11" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell11" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell01")
+bottom_cell = NodePath("../Cell21")
+left_cell = NodePath("../Cell10")
+right_cell = NodePath("../Cell12")
 
-[node name="Cell12" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell12" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell02")
+bottom_cell = NodePath("../Cell22")
+left_cell = NodePath("../Cell11")
+right_cell = NodePath("../Cell13")
 
-[node name="Cell13" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell13" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell03")
+bottom_cell = NodePath("../Cell23")
+left_cell = NodePath("../Cell12")
+right_cell = NodePath("../Cell14")
 
-[node name="Cell14" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell14" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell04")
+bottom_cell = NodePath("../Cell24")
+left_cell = NodePath("../Cell13")
 
-[node name="Cell20" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell20" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell10")
+bottom_cell = NodePath("../Cell30")
+right_cell = NodePath("../Cell21")
 
-[node name="Cell21" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell21" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell11")
+bottom_cell = NodePath("../Cell31")
+left_cell = NodePath("../Cell20")
+right_cell = NodePath("../Cell22")
 
-[node name="Cell22" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell22" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell12")
+bottom_cell = NodePath("../Cell32")
+left_cell = NodePath("../Cell21")
+right_cell = NodePath("../Cell23")
 
-[node name="Cell23" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell23" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell13")
+bottom_cell = NodePath("../Cell33")
+left_cell = NodePath("../Cell22")
+right_cell = NodePath("../Cell24")
 
-[node name="Cell24" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell24" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell14")
+bottom_cell = NodePath("../Cell34")
+left_cell = NodePath("../Cell23")
 
-[node name="Cell30" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell30" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell20")
+bottom_cell = NodePath("../Cell40")
+right_cell = NodePath("../Cell31")
 
-[node name="Cell31" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell31" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell21")
+bottom_cell = NodePath("../Cell41")
+left_cell = NodePath("../Cell30")
+right_cell = NodePath("../Cell32")
 
-[node name="Cell32" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell32" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell22")
+bottom_cell = NodePath("../Cell42")
+left_cell = NodePath("../Cell31")
+right_cell = NodePath("../Cell33")
 
-[node name="Cell33" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell33" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell23")
+bottom_cell = NodePath("../Cell43")
+left_cell = NodePath("../Cell32")
+right_cell = NodePath("../Cell34")
 
-[node name="Cell34" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell34" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "bottom_cell", "left_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell24")
+bottom_cell = NodePath("../Cell44")
+left_cell = NodePath("../Cell33")
 
-[node name="Cell40" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell40" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell30")
+right_cell = NodePath("../Cell41")
 
-[node name="Cell41" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell41" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell31")
+left_cell = NodePath("../Cell40")
+right_cell = NodePath("../Cell42")
 
-[node name="Cell42" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell42" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell32")
+left_cell = NodePath("../Cell41")
+right_cell = NodePath("../Cell43")
 
-[node name="Cell43" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell43" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "left_cell", "right_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell33")
+left_cell = NodePath("../Cell42")
+right_cell = NodePath("../Cell44")
 
-[node name="Cell44" parent="Game/Grid" instance=ExtResource("2_0xm2m")]
+[node name="Cell44" parent="Game/Grid" node_paths=PackedStringArray("top_cell", "left_cell") instance=ExtResource("2_0xm2m")]
 layout_mode = 2
+top_cell = NodePath("../Cell34")
+left_cell = NodePath("../Cell43")
 
 [node name="Separator" type="Control" parent="Game"]
 custom_minimum_size = Vector2(0, 100)

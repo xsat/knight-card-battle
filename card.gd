@@ -22,6 +22,9 @@ func show_number() -> void:
 func hide_number() -> void:
 	number.set_visible(false)
 	background.set_color(Color.BLACK)
+
+func get_play_card() -> PlayCard:
+	return play_card
 	
 func set_play_card(new_play_card: PlayCard) -> void:
 	play_card = new_play_card
